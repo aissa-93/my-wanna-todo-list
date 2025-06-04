@@ -123,7 +123,6 @@ class IdeaList extends Component {
           marginStyles.expanded :
           marginStyles.mini
         }
-        onScroll={this.handleScroll}
       >
         <CSSTransitionGroup
           className="transition-container"
