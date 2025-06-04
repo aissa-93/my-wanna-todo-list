@@ -26,11 +26,11 @@ it('should set Dialog open based on props', () => {
   const wrapper = getActualDialog({ open: true });
   expect(wrapper.find('Dialog').prop('open')).toBe(true);
 });
-it('should set TextField defaultValue based on props', () => {
+it('should set TextField value based on props', () => {
   const wrapper = getActualDialog({
     task: 'a cool task',
   });
-  expect(wrapper.find('TextField').prop('defaultValue')).toBe('a cool task');
+  expect(wrapper.find('TextField').prop('value')).toBe('a cool task');
 });
 it('should call onRequestClose inside close FlatButton onClick', (done) => {
   const wrapper = getActualDialog({
@@ -54,4 +54,11 @@ it('should set FlatButton disabled based on state', () => {
   wrapper.find('TextField').props().onChange({ target: { value: 'a cool task' } });
   wrapper.update();
   expect(wrapper.find('Dialog').prop('actions')[0].props.disabled).toBe(false);
+});
+
+it('should reset state.task when dialog is closed', () => {
+  const wrapper = getActualDialog({ open: true, task: 'task 1' });
+  wrapper.find('TextField').props().onChange({ target: { value: 'edited' } });
+  wrapper.find('Dialog').prop('actions')[1].props.onClick();
+  expect(wrapper.state('task')).toBe('');
 });

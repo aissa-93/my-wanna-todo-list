@@ -15,7 +15,7 @@ import NewIdeaDialog from './NewIdeaDialog';
 import calculateBottom from './lib/calculateBottom';
 
 import {
-  FABRaiseWindowWidthTreshold,
+  FABRaiseWindowWidthThreshold,
   FABBottom,
   FABRaisedBottom,
   FABMiniRaisedBottomClosed,
@@ -83,7 +83,7 @@ class FAB extends Component {
       plusFAB: {
         position: 'absolute',
         right: FABRight,
-        bottom: this.props.FABRaised && this.props.width < FABRaiseWindowWidthTreshold ?
+        bottom: this.props.FABRaised && this.props.width < FABRaiseWindowWidthThreshold ?
           FABRaisedBottom :
           FABBottom,
         transform: this.state.FABOpen ? 'rotate(45deg)' : 'rotate(0)',
@@ -93,7 +93,7 @@ class FAB extends Component {
       doneFAB: {
         position: 'absolute',
         right: FABMiniRight,
-        bottom: this.props.FABRaised && this.props.width < FABRaiseWindowWidthTreshold ?
+        bottom: this.props.FABRaised && this.props.width < FABRaiseWindowWidthThreshold ?
           FABMiniRaisedBottomClosed :
           calculateBottom(this.state.FABOpen, 0),
         opacity: this.state.FABOpen ? 1 : 0,
@@ -103,7 +103,7 @@ class FAB extends Component {
       lightbulbFAB: {
         position: 'absolute',
         right: FABMiniRight,
-        bottom: this.props.FABRaised && this.props.width < FABRaiseWindowWidthTreshold ?
+        bottom: this.props.FABRaised && this.props.width < FABRaiseWindowWidthThreshold ?
           FABMiniRaisedBottomClosed :
           calculateBottom(this.state.FABOpen, 1),
         opacity: this.state.FABOpen ? 1 : 0,

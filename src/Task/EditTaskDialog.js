@@ -7,6 +7,15 @@ import { HotKeys } from 'react-hotkeys';
 
 class EditTaskDialog extends Component {
   state = { task: this.props.task };
+
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.open) {
+      this.setState({ task: '' });
+    } else if (nextProps.task !== this.props.task) {
+      this.setState({ task: nextProps.task });
+    }
+  }
+
   keyMap = { confirmEditTask: 'enter' };
 
   handleTaskChange = (e) => {
@@ -15,6 +24,7 @@ class EditTaskDialog extends Component {
     });
   }
   handleRequestClose = () => {
+    this.setState({ task: '' });
     this.props.onRequestClose();
   }
   handleRequestEdit = () => {
@@ -74,7 +84,7 @@ class EditTaskDialog extends Component {
             fullWidth
             underlineFocusStyle={textFieldStyles.underlineFocusStyle}
             floatingLabelFocusStyle={textFieldStyles.floatingLabelFocusStyle}
-            defaultValue={this.props.task}
+            value={this.state.task}
             onChange={this.handleTaskChange}
             autoFocus
           />
