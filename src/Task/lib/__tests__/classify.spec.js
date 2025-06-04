@@ -67,7 +67,7 @@ it('should set overdue tasks signal to true', () => {
   const { overdue } = classify(tasks);
   expect(overdue[0].signal).toBe(true);
 });
-it('should set not-yet tasks color to red', () => {
+it('should set not-yet tasks color to teal', () => {
   const { notYet } = classify(tasks);
   expect(notYet[0].color).toBe('hsl(180, 100%, 50%)');
 });
@@ -75,7 +75,7 @@ it('should set not-yet tasks signal to false', () => {
   const { notYet } = classify(tasks);
   expect(notYet[0].signal).toBe(false);
 });
-it('should set done tasks color to red', () => {
+it('should set done tasks color to purple', () => {
   const { done } = classify(tasks);
   expect(done[0].color).toBe('#AB47BC');
 });

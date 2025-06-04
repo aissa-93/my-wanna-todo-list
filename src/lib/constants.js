@@ -1,4 +1,4 @@
-export const FABRaiseWindowWidthTreshold = 768;
+export const FABRaiseWindowWidthThreshold = 768;
 export const FABBottom = 24;
 export const FABMiniBottomClosed = 32;
 export const FABRaisedBottom = 72;
